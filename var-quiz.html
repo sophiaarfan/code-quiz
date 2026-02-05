@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale:1.0">
+        <title>Variable Tracking Quiz</title>
+        <link  rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="var-quiz.html">Variable Tracking Quiz</a>
+        </nav>
+
+        <div class="container">
+            <h1>Python Variable Tracking Quiz</h1>
+            <div id="introduction">
+                <p>Start the quiz to check your undestanding of basic variable tracking through operations within python. Note: For decimal answers round to two decimal places.</p>
+                <button onclick="startQuiz()">Start Quiz!</button>
+            </div>
+
+            <div id="quiz" style="display:none;"></div>
+            <div class="result" id ="result"></div>
+            <div class="score" id="score"></div>
+            <button id="nextQ" style="display:none;" onclick="nextQuestion()">Next Question</button>
+        </div>
+        <script src="quiz.js"></script>
+    </body>
+</html>
