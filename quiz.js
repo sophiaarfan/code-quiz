@@ -87,6 +87,11 @@ function checkAns() {
     if(correct) {
         resultDiv.innerHTML = "Correct!!";
         scoreCount++;
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
     } else {
         resultDiv.innerHTML = `Incorrect. The correct answer is: ${currentAns}`;
     }
