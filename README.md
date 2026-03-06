@@ -1,6 +1,7 @@
 # Python Code Quiz
 This is an interactive web application to help users begin to practice coding fundementals often tested in first year Computer Science courses. For now, the quiz available is to help beginners practice tracking Python variables as operations are done to them.
-##Live Demo:
+
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-%23780000?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sophiaarfan.github.io/code-quiz/var-quiz.html)
 
 ## Features
