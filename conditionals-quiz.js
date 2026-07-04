@@ -1,4 +1,4 @@
-// Conditionals — questionGen only
+// Conditionals questionGen only
 
 function rand(n) { return Math.floor(Math.random() * n); }
 function randInt(lo, hi) { return lo + rand(hi - lo + 1); }
