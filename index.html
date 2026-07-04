@@ -1,29 +1,131 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, intial-scale:1.0">
-        <title>Python Code Quiz</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pyquiz — Python practice</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <body>
-        <nav class = navbar>
-            <a href="index.html">Home</a>
-            <a href="var-quiz.html">Variable Tracking Quiz</a>
-        </nav>
-        <h1>Welcome to coding practice!</h1>
-        <div class="container">
-            <h1>Overview:</h1>
-            <p>This website is designed with the intent to help you test your understanding of basic fundementals in python.</p>
-            <p>Currently, as this is an ongoing project currently you will be able to practice predicting the output of Python operations on variables.</p>
-            <p>Future updates will include</p>
-            <ul>
-                <li>List tracking</li>
-                <li>Function and return value tracking</li>
-                <li>Naming the error</li>
-            </ul>
-            <button onclick="location.href='var-quiz.html'">Click me to start!</button>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">py<span>quiz</span></a>
+        <div class="navbar-right">
+            <a href="index.html" class="active">Modules</a>
+            <a href="#">Leaderboard</a>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">☀️</button>
         </div>
-    </body>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-text">
+            <p class="hero-eyebrow">Python fundamentals practice</p>
+            <h1><span class="hi">Pick a module.</span><br><span class="py">Test yourself.</span></h1>
+            <p>10 randomly generated questions per module. No memorising, no shortcuts — just you and your Python intuition.</p>
+            <a href="var-quiz.html" class="btn-primary">Start a quiz →</a>
+        </div>
+        <img src="robot.png" class="hero-mascot" alt="pyquiz mascot">
+    </div>
+
+    <div class="section">
+        <p class="section-label">Modules</p>
+        <div class="module-grid">
+
+            <a href="var-quiz.html" class="module-card clr-red">
+                <span class="module-icon">📦</span>
+                <div class="module-title">Variable Tracking</div>
+                <div class="module-desc">Follow assignments and operations. Predict the final value of a variable.</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill beginner">Beginner</span>
+                    <span class="module-questions">10 questions</span>
+                </div>
+            </a>
+
+            <a href="strings-quiz.html" class="module-card clr-pink">
+                <span class="module-icon">🔤</span>
+                <div class="module-title">String Operations</div>
+                <div class="module-desc">Slicing, concatenation, and built-in string methods. What does this return?</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill beginner">Beginner</span>
+                    <span class="module-questions">10 questions</span>
+                </div>
+            </a>
+
+            <a href="lists-quiz.html" class="module-card clr-blue">
+                <span class="module-icon">📋</span>
+                <div class="module-title">List Operations</div>
+                <div class="module-desc">Indexing, slicing, append, pop. Track a list through a sequence of mutations.</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill beginner">Beginner</span>
+                    <span class="module-questions">10 questions</span>
+                </div>
+            </a>
+
+            <a href="conditionals-quiz.html" class="module-card clr-yellow">
+                <span class="module-icon">🔀</span>
+                <div class="module-title">Conditionals</div>
+                <div class="module-desc">Follow if / elif / else chains. Which branch runs and what gets printed?</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill beginner">Beginner</span>
+                    <span class="module-questions">10 questions</span>
+                </div>
+            </a>
+
+            <a href="loops-quiz.html" class="module-card clr-green">
+                <span class="module-icon">🔁</span>
+                <div class="module-title">Loop Tracing</div>
+                <div class="module-desc">Step through for and while loops. Predict the output once iterations finish.</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill intermediate">Intermediate</span>
+                    <span class="module-questions">10 questions</span>
+                </div>
+            </a>
+
+            <div class="module-card locked">
+                <span class="module-icon">⚙️</span>
+                <div class="module-title">Function Tracing</div>
+                <div class="module-desc">Follow return values through nested and chained function calls.</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill intermediate">Intermediate</span>
+                    <span class="module-questions">Coming soon</span>
+                </div>
+            </div>
+
+            <div class="module-card locked">
+                <span class="module-icon">🌐</span>
+                <div class="module-title">Scope</div>
+                <div class="module-desc">Local vs global. After a function runs, what does the outer variable hold?</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill intermediate">Intermediate</span>
+                    <span class="module-questions">Coming soon</span>
+                </div>
+            </div>
+
+            <div class="module-card locked">
+                <span class="module-icon">⚠️</span>
+                <div class="module-title">Error ID</div>
+                <div class="module-desc">Name the exception. TypeError, IndexError, KeyError — what does this raise?</div>
+                <div class="module-footer">
+                    <span class="difficulty-pill intermediate">Intermediate</span>
+                    <span class="module-questions">Coming soon</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+        }
+
+        // apply saved theme on load
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            document.querySelector('.theme-toggle').textContent = '🌙';
+        }
+    </script>
+</body>
 </html>
